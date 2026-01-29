@@ -4,16 +4,45 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Chawwie — Portfolio</title>
-
+  <title>Charlie Magne Arañez— Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    /* Button pop hover — lightweight, accessible */
+    .btn, button, .hero-cta a {
+      transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms;
+      will-change: transform;
+      display: inline-block;
+      backface-visibility: hidden;
+    }
+
+    .btn:hover, button:hover, .hero-cta a:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(20,35,60,0.18), 0 6px 12px rgba(20,35,60,0.08);
+    }
+
+    .btn:active, button:active, .hero-cta a:active {
+      transform: translateY(-1px) scale(0.995);
+      box-shadow: 0 6px 12px rgba(20,35,60,0.12);
+    }
+
+    .btn:focus-visible, button:focus-visible, .hero-cta a:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(59,130,246,0.18), 0 12px 22px rgba(20,35,60,0.12);
+    }
+  </style>
 </head>
 <body>
 
   <header class="site-header">
+    <div class="header-pattern" aria-hidden="true">
+      <span class="hp-orb orb1"></span>
+      <span class="hp-orb orb2"></span>
+      <span class="hp-orb orb3"></span>
+    </div>
     <div class="header-inner container">
-      <a class="brand" href="#home"><span class="word-hover">Chawwie</span></a>
+      <a class="brand" href="#home"><span class="word-hover">Charlie Magne</span></a>
 
       <button class="nav-toggle" aria-label="Toggle navigation">
         <i class="fa fa-bars"></i>
@@ -22,10 +51,8 @@
       <nav class="site-nav" id="site-nav">
         <ul>
           <li><a href="#home" class="nav-link word-hover">Home</a></li>
-          <li><a href="#services" class="nav-link word-hover">Services</a></li>
           <li><a href="#skills" class="nav-link word-hover">Skills</a></li>
           <li><a href="#projects" class="nav-link word-hover">Projects</a></li>
-          <li><a href="#experience" class="nav-link word-hover">Experience</a></li>
           <li><a href="#contact" class="nav-link word-hover">Contact</a></li>
         </ul>
       </nav>
@@ -35,105 +62,693 @@
   <main>
     <section id="home" class="hero section">
       <div class="hero-inner container">
-        <div class="hero-text">
-          <h1 class="hello"><span class="word-hover">Hello,</span> <span class="word-hover">I'm</span> <span class="name word-hover">Charlie</span> <span class="name word-hover">Magne</span> <span class="name word-hover">Aranez</span> <span class="name word-hover">Severino</span></h1>
-          <p class="role"><span class="word-hover">I'm</span> a <strong class="word-hover">4th Year Computer Science Student</strong></p>
-          <p class="lead"><span class="word-hover">I</span> <span class="word-hover">specialize</span> <span class="word-hover">in</span> <span class="word-hover">creating</span> <span class="word-hover">web</span> <span class="word-hover">and</span> <span class="word-hover">mobile</span> <span class="word-hover">applications.</span> <span class="word-hover">I'm</span> <span class="word-hover">passionate</span> <span class="word-hover">about</span> <span class="word-hover">creating</span> <span class="word-hover">solutions</span> <span class="word-hover">that</span> <span class="word-hover">improve</span> <span class="word-hover">user</span> <span class="word-hover">experience</span> <span class="word-hover">and</span> <span class="word-hover">solve</span> <span class="word-hover">real-world</span> <span class="word-hover">problems.</span></p>
-          <a href="#contact" class="btn word-hover">Hire Me</a>
+        <div class="hero-left">
+          <p class="kicker">Hi, my name is</p>
+          <h1 class="hero-title"><span class="name">Charlie Magne</span> <span class="accent">Arañez</span>.</h1>
+          <p class="hero-sub">I build things for the web — interfaces, apps, and nice experiences.</p>
+          <div class="hero-cta">
+            <a href="#projects" class="btn primary">See Work</a>
+            <a href="#contact" class="btn ghost">Get In Touch</a>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <section id="services" class="section">
-      <div class="container">
-        <h2 class="word-hover">Services</h2>
-        <p><span class="word-hover">Put</span> <span class="word-hover">service</span> <span class="word-hover">cards</span> <span class="word-hover">or</span> <span class="word-hover">a</span> <span class="word-hover">short</span> <span class="word-hover">list</span> <span class="word-hover">here.</span></p>
+        <div class="hero-right" aria-hidden="true">
+          <div class="hero-decor" aria-hidden="true">
+            <span class="shape circle s1"></span>
+            <span class="shape circle s2"></span>
+            <span class="shape triangle s3"></span>
+            <span class="shape ring s4"></span>
+          </div>
+          <!-- decorative big initial -->
+          <span class="hero-graphic">C</span>
+        </div>
       </div>
     </section>
 
     <section id="skills" class="section alt">
       <div class="container">
         <h2 class="word-hover">Skills</h2>
-        <p><span class="word-hover">List</span> <span class="word-hover">your</span> <span class="word-hover">skills</span> <span class="word-hover">and</span> <span class="word-hover">technologies</span> <span class="word-hover">here.</span></p>
-      </div>
-    </section>
+        <p class="lead">Selected tools, languages, and expertise I use to deliver projects — styled for clarity and impact.</p>
 
-    <section id="projects" class="section">
-      <div class="container">
-        <h2 class="word-hover">Projects</h2>
-        <div class="projects-grid">
-          <div class="project-card" tabindex="0">
-            <div class="project-icon"><i class="fa fa-mobile"></i></div>
-            <h3 class="word-hover">Mobile App</h3>
-            <p class="project-desc">Interactive mobile applications for Android/iOS. <span class="word-hover">Click</span> <span class="word-hover">to</span> <span class="word-hover">see</span> <span class="word-hover">details.</span></p>
-            <div class="project-images">
-              <div class="image-box" data-system="mobile" data-title="Mobile App Screenshot 1">
-                <span class="box-title"></span>
-              </div>
-              <div class="image-box" data-system="mobile" data-title="Mobile App Screenshot 2">
-                <span class="box-title"></span>
-              </div>
-            </div>
-            <div class="project-details">
-              <p><strong>Click on an Image to view Project screenshots and source codes.</strong>.</p>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <span class="skill-badge ms">MS</span>
+            <div class="skill-info">
+              <div class="skill-name">Microsoft Office</div>
+              <div class="skill-desc">Word, Excel, PowerPoint — documentation, reports, and professional presentations.</div>
+              <div class="skill-tags"><span>Documentation</span><span>Reports</span><span>Presentations</span></div>
             </div>
           </div>
-          <div class="project-card" tabindex="0">
-            <div class="project-icon"><i class="fa fa-globe"></i></div>
-            <h3 class="word-hover">Website</h3>
-            <p class="project-desc">Modern, responsive websites. <span class="word-hover">Click</span> <span class="word-hover">to</span> <span class="word-hover">see</span> <span class="word-hover">details.</span></p>
-            <div class="project-images">
-              <div class="image-box" data-system="website" data-title="Website Screenshot 1">
-                <span class="box-title"></span>
-              </div>
-              <div class="image-box" data-system="website" data-title="Website Screenshot 2">
-                <span class="box-title"></span>
-              </div>
-            </div>
-            <div class="project-details">
-              <p><strong>Click on an Image to view Project screenshots and source codes.</strong></p>
+
+          <div class="skill-card">
+            <span class="skill-badge g">G</span>
+            <div class="skill-info">
+              <div class="skill-name">Google Workspace</div>
+              <div class="skill-desc">Drive, Docs, Sheets, Slides — collaboration and cloud productivity workflows.</div>
+              <div class="skill-tags"><span>Collaboration</span><span>Cloud</span><span>Sharing</span></div>
             </div>
           </div>
-          <div class="project-card" tabindex="0">
-            <div class="project-icon"><i class="fa fa-paint-brush"></i></div>
-            <h3 class="word-hover">Graphic Designs</h3>
-            <p class="project-desc">Creative graphic design projects. <span class="word-hover">Click</span> <span class="word-hover">to</span> <span class="word-hover">see</span> <span class="word-hover">details.</span></p>
-            <div class="project-images">
-              <div class="image-box" data-system="graphic" data-title="Graphic Design 1">
-                <span class="box-title"></span>
-              </div>
-              <div class="image-box" data-system="graphic" data-title="Graphic Design 2">
-                <span class="box-title"></span>
-              </div>
-            </div>
-            <div class="project-details">
-              <p> <strong>Click on an Image to view Project screenshots and source codes.</strong></p>
+
+          <div class="skill-card">
+            <span class="skill-badge fm">FM</span>
+            <div class="skill-info">
+              <div class="skill-name">File Management & Troubleshooting</div>
+              <div class="skill-desc">Organizing data, resolving common system issues, and maintaining tidy file systems.</div>
+              <div class="skill-tags"><span>Organization</span><span>Troubleshooting</span></div>
             </div>
           </div>
-          <div class="project-card" tabindex="0">
-            <div class="project-icon"><i class="fa fa-desktop"></i></div>
-            <h3 class="word-hover">Desktop Applications</h3>
-            <p class="project-desc"> <span class="word-hover">Click</span> <span class="word-hover">to</span> <span class="word-hover">see</span> <span class="word-hover">details.</span></p>
-            <div class="project-images">
-              <div class="image-box" data-system="desktop" data-title="Desktop App Screenshot 1">
-                <span class="box-title"></span>
-              </div>
-              <div class="image-box" data-system="desktop" data-title="Desktop App Screenshot 2">
-                <span class="box-title"></span>
-              </div>
-            </div>
-            <div class="project-details">
-              <p> <strong>Click on an Image to view Project screenshots and source codes.</strong> </p>
+
+          <div class="skill-card">
+            <span class="skill-badge java">Jv</span>
+            <div class="skill-info">
+              <div class="skill-name">Java</div>
+              <div class="skill-desc">Object-oriented programming and foundational software development.</div>
+              <div class="skill-progress"><div class="progress"><i style="width:28%"></i></div></div>
+              <div class="skill-tags"><span>OOP</span><span>Data Structures</span></div>
             </div>
           </div>
+
+          <div class="skill-card">
+            <span class="skill-badge sql">SQL</span>
+            <div class="skill-info">
+              <div class="skill-name">SQL</div>
+              <div class="skill-desc">Database design, complex querying, and data management.</div>
+              <div class="skill-progress"><div class="progress"><i style="width:26%"></i></div></div>
+              <div class="skill-tags"><span>Databases</span><span>Queries</span></div>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <span class="skill-badge web">WEB</span>
+            <div class="skill-info">
+              <div class="skill-name">Web Development</div>
+              <div class="skill-desc">HTML, CSS, JavaScript — building responsive and accessible user interfaces.</div>
+              <div class="skill-progress"><div class="progress"><i style="width:29%"></i></div></div>
+              <div class="skill-tags"><span>Responsive</span><span>Accessibility</span></div>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <span class="skill-badge rx">R</span>
+            <div class="skill-info">
+              <div class="skill-name">React.js</div>
+              <div class="skill-desc">Developing dynamic front-end applications and component-driven UIs.</div>
+              <div class="skill-progress"><div class="progress"><i style="width:24%"></i></div></div>
+              <div class="skill-tags"><span>Components</span><span>State</span></div>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <span class="skill-badge net">NW</span>
+            <div class="skill-info">
+              <div class="skill-name">Computer Networks</div>
+              <div class="skill-desc">Basic networking concepts, connectivity, and troubleshooting fundamentals.</div>
+              <div class="skill-tags"><span>Connectivity</span><span>Fundamentals</span></div>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <span class="skill-badge sec">SC</span>
+            <div class="skill-info">
+              <div class="skill-name">Cybersecurity Awareness</div>
+              <div class="skill-desc">System security basics, safe computing practices, and threat awareness.</div>
+              <div class="skill-tags"><span>Security</span><span>Best Practices</span></div>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <span class="skill-badge canva">Cv</span>
+            <div class="skill-info">
+              <div class="skill-name">Photo Editing</div>
+              <div class="skill-desc">Canva and basic Photoshop for visual content, thumbnails, and social assets.</div>
+              <div class="skill-tags"><span>Design</span><span>Visuals</span></div>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <span class="skill-badge vid">VD</span>
+            <div class="skill-info">
+              <div class="skill-name">Video Editing</div>
+              <div class="skill-desc">CapCut and Filmora for simple multimedia and short-form video projects.</div>
+              <div class="skill-tags"><span>Editing</span><span>Multimedia</span></div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <section id="experience" class="section">
+    <section id="projects" class="section projects-section">
       <div class="container">
-        <h2 class="word-hover">Experience</h2>
-        <p><span class="word-hover">Add</span> <span class="word-hover">your</span> <span class="word-hover">work</span> <span class="word-hover">or</span> <span class="word-hover">project</span> <span class="word-hover">experience</span> <span class="word-hover">here.</span></p>
+        <h2 class="word-hover">Projects</h2>
+        <p class="lead">A curated selection of real projects showcasing interface design, system architecture, and practical implementations.<br>Click any card to view details.</p>
+        <br>
+      <div class="container">
+        <div class="projects-grid modern">
+          <div class="modern-project-card" onclick="openProjectModal('system1')">
+            <div class="modern-project-logo modern-project-icon" style="background:#e0f7fa;"><i class="fa fa-heartbeat"></i></div>
+            <div class="modern-project-title">Wellwave - School Counseling and Mental Health Support System</div>
+            <div class="modern-project-meta">Human–Computer Interaction</div>
+          </div>
+          <div class="modern-project-card" onclick="openProjectModal('system2')">
+            <div class="modern-project-logo modern-project-icon" style="background:#fff3e0;"><i class="fa fa-qrcode"></i></div>
+            <div class="modern-project-title">Interactive Information Zoo catalog using QR Code</div>
+            <div class="modern-project-meta">Operating Systems</div>
+          </div>
+          <div class="modern-project-card" onclick="openProjectModal('system3')">
+            <div class="modern-project-logo modern-project-icon" style="background:#e8f5e9;"><i class="fa fa-map-marker"></i></div>
+            <div class="modern-project-title">CCS Information and Room Tracking System</div>
+            <div class="modern-project-meta">Software Engineering</div>
+          </div>
+          <div class="modern-project-card" onclick="openProjectModal('system4')">
+            <div class="modern-project-logo modern-project-icon" style="background:#ede7f6;"><i class="fa fa-user"></i></div>
+            <div class="modern-project-title">Student Information System</div>
+            <div class="modern-project-meta">Academic Project</div>
+          </div>
+          <div class="modern-project-card" onclick="openProjectModal('system5')">
+            <div class="modern-project-logo modern-project-icon" style="background:#fffde7;"><i class="fa fa-file-text"></i></div>
+            <div class="modern-project-title">Automated Document Classification and Management for School Accreditation Benchmarking</div>
+            <div class="modern-project-meta">BERT Classifier, NER (Thesis Project)</div>
+          </div>
+          <div class="modern-project-card" onclick="openProjectModal('system6')">
+            <div class="modern-project-logo modern-project-icon" style="background:#e3f2fd;"><i class="fa fa-tasks"></i></div>
+            <div class="modern-project-title">SK Projects Management: Integrated Development Framework</div>
+            <div class="modern-project-meta">Information Management</div>
+          </div>
+        </div>
+        <!-- Modals for each system -->
+        <div id="modal-system1" class="project-modal">
+          <div class="modal-content large-modal">
+            <button class="close-modal" onclick="closeProjectModal('system1')">&times;</button>
+            <div class="carousel">
+              <button class="carousel-btn prev" aria-label="Previous image" onclick="carouselPrev('system1')">&#10094;</button>
+              <div class="carousel-track" id="carousel-system1">
+                <img src="images/wellwave/1.png" alt="Wellwave 1" class="carousel-slide">
+                <img src="images/wellwave/2.png" alt="Wellwave 2" class="carousel-slide">
+                <img src="images/wellwave/3.png" alt="Wellwave 3" class="carousel-slide">
+                <img src="images/wellwave/4.png" alt="Wellwave 4" class="carousel-slide">
+                <img src="images/wellwave/5.png" alt="Wellwave 5" class="carousel-slide">
+                <img src="images/wellwave/6.png" alt="Wellwave 6" class="carousel-slide">
+                <img src="images/wellwave/7.png" alt="Wellwave 7" class="carousel-slide">
+                <img src="images/wellwave/8.png" alt="Wellwave 8" class="carousel-slide">
+                <img src="images/wellwave/9.png" alt="Wellwave 9" class="carousel-slide">
+                <img src="images/wellwave/10.png" alt="Wellwave 10" class="carousel-slide">
+                <img src="images/wellwave/11.png" alt="Wellwave 11" class="carousel-slide">
+                <img src="images/wellwave/12.png" alt="Wellwave 12" class="carousel-slide">
+                <img src="images/wellwave/13.png" alt="Wellwave 13" class="carousel-slide">
+                <img src="images/wellwave/14.png" alt="Wellwave 14" class="carousel-slide">
+              </div>
+              <button class="carousel-btn next" aria-label="Next image" onclick="carouselNext('system1')">&#10095;</button>
+              <div class="carousel-dots" id="carousel-dots-system1" aria-hidden="false"></div>
+            </div>
+            <div class="modal-desc">
+              <h2>Wellwave - School Counseling and Mental Health Support System</h2> <BR>
+              <p> A school-based mental health support system designed to address the emotional, psychological, and social challenges faced by students within the EARIST community. As academic pressures and personal challenges increase, many students experience stress and anxiety that traditional educational systems are often unable to adequately support. Wellwave bridges this gap by integrating accessible and student-centered mental health services directly into the school environment.</p> <br>
+              <p> The system provides a safe, confidential, and non-judgmental platform where students can openly discuss their concerns with trained school counselors. By emphasizing wellbeing-centered counseling, Wellwave helps reduce stress, promote emotional resilience, and encourage healthier coping mechanisms among students.</p> <br>
+              <p> Designed as a holistic mental health intervention, Wellwave aims to improve awareness of mental health, enhance access to counseling services, and align emotional wellbeing with academic development. Although tailored specifically for EARIST and limited by resource availability and counselor capacity, the system highlights the importance of prioritizing mental health in education and contributes to the creation of a supportive school environment where emotional wellbeing is valued alongside academic success.</p>
+            </div>
+          </div>
+        </div>
+        <div id="modal-system2" class="project-modal">
+          <div class="modal-content large-modal">
+            <button class="close-modal" onclick="closeProjectModal('system2')">&times;</button>
+            <div class="carousel">
+              <button class="carousel-btn prev" aria-label="Previous image" onclick="carouselPrev('system2')">&#10094;</button>
+              <div class="carousel-track" id="carousel-system2">
+                <img src="images/OS%20Manual/1.png" alt="OS Manual 1" class="carousel-slide">
+                <img src="images/OS%20Manual/2.png" alt="OS Manual 2" class="carousel-slide">
+                <img src="images/OS%20Manual/3.png" alt="OS Manual 3" class="carousel-slide">
+                <img src="images/OS%20Manual/4.png" alt="OS Manual 4" class="carousel-slide">
+                <img src="images/OS%20Manual/5.png" alt="OS Manual 5" class="carousel-slide">
+                <img src="images/OS%20Manual/6.png" alt="OS Manual 6" class="carousel-slide">
+                <img src="images/OS%20Manual/7.png" alt="OS Manual 7" class="carousel-slide">
+                <img src="images/OS%20Manual/8.png" alt="OS Manual 8" class="carousel-slide">
+                <img src="images/OS%20Manual/9.png" alt="OS Manual 9" class="carousel-slide">
+                <img src="images/OS%20Manual/10.png" alt="OS Manual 10" class="carousel-slide">
+                <img src="images/OS%20Manual/11.png" alt="OS Manual 11" class="carousel-slide">
+                <img src="images/OS%20Manual/12.png" alt="OS Manual 12" class="carousel-slide">
+                <img src="images/OS%20Manual/13.png" alt="OS Manual 13" class="carousel-slide">
+                <img src="images/OS%20Manual/14.png" alt="OS Manual 14" class="carousel-slide">
+                <img src="images/OS%20Manual/15.png" alt="OS Manual 15" class="carousel-slide">
+                <img src="images/OS%20Manual/16.png" alt="OS Manual 16" class="carousel-slide">
+                <img src="images/OS%20Manual/17.png" alt="OS Manual 17" class="carousel-slide">
+                <img src="images/OS%20Manual/18.png" alt="OS Manual 18" class="carousel-slide">
+                <img src="images/OS%20Manual/19.png" alt="OS Manual 19" class="carousel-slide">
+              </div>
+              <button class="carousel-btn next" aria-label="Next image" onclick="carouselNext('system2')">&#10095;</button>
+              <div class="carousel-dots" id="carousel-dots-system2" aria-hidden="false"></div>
+            </div>
+            <div class="modal-desc">
+              <h2>Interactive Information Zoo catalog using QR Code</h2><br>
+              <p>The Interactive Information Zoo Catalog using QR Code is a system designed to enhance zoo visitors’ learning experience by providing instant access to accurate and organized animal information through mobile devices. QR codes are placed near animal enclosures, which visitors can scan using a custom-built mobile application. Once scanned, the system retrieves and displays detailed content such as animal descriptions, habitat, diet, conservation status, and images, eliminating the need for printed materials and manual guides.</p> <br>
+              <p>From an Operating Systems perspective, the project demonstrates key OS concepts such as process management, file handling, memory usage, and device interaction. The mobile application handles user input and camera access, while the backend system manages data storage, retrieval, and concurrent access requests efficiently. The system emphasizes responsiveness, efficient resource utilization, and reliable data access, showcasing how operating system principles support real-time, interactive applications in a practical, real-world environment.</p>
+            </div>
+          </div>
+        </div>
+        <div id="modal-system3" class="project-modal">
+          <div class="modal-content large-modal">
+            <button class="close-modal" onclick="closeProjectModal('system3')">&times;</button>
+            <div class="carousel">
+              <button class="carousel-btn prev" aria-label="Previous image" onclick="carouselPrev('system3')">&#10094;</button>
+              <div class="carousel-track" id="carousel-system3">
+                <img src="images/ccsinfosystem/1.png" alt="CCS 1" class="carousel-slide">
+                <img src="images/ccsinfosystem/2.png" alt="CCS 2" class="carousel-slide">
+                <img src="images/ccsinfosystem/3.png" alt="CCS 3" class="carousel-slide">
+                <img src="images/ccsinfosystem/4.png" alt="CCS 4" class="carousel-slide">
+                <img src="images/ccsinfosystem/5.png" alt="CCS 5" class="carousel-slide">
+                <img src="images/ccsinfosystem/6.png" alt="CCS 6" class="carousel-slide">
+              </div>
+              <button class="carousel-btn next" aria-label="Next image" onclick="carouselNext('system3')">&#10095;</button>
+              <div class="carousel-dots" id="carousel-dots-system3" aria-hidden="false"></div>
+            </div>
+            <div class="modal-desc">
+              <h2>CCS Information and Room Tracking System</h2> <br>
+              <p> The CCS Information and Room Tracking System is a desktop-based application designed to modernize the administrative and academic operations of the College of Computing Studies at EARIST. Developed to replace inefficient manual logbooks and paper-based workflows, the system serves as a centralized platform that digitizes record-keeping, information dissemination, and resource monitoring.</p> <br>
+              <p> The system functions through three core integrated modules to streamline college operations. An interactive kiosk interface allows students and faculty to search for real-time class schedules, faculty profiles, section details, and room assignments, effectively eliminating the need for physical bulletin boards. The platform replaces manual logbooks by digitally recording professor attendance in classrooms and tracking specific PC usage by students in computer laboratories. Furthermore, the system enhances security and management by integrating hardware sensors, such as RFID and laser beams, to validate professor presence, detect unauthorized room entry, and trigger alarms for security breaches. By automating data validation and centralizing records, the project aims to resolve approval bottlenecks, ensure accurate resource accountability, and create a seamless, paperless environment for the college</p>
+            </div>
+          </div>
+        </div>
+        <div id="modal-system4" class="project-modal">
+          <div class="modal-content large-modal">
+            <button class="close-modal" onclick="closeProjectModal('system4')">&times;</button>
+            <div class="carousel">
+              <button class="carousel-btn prev" aria-label="Previous image" onclick="carouselPrev('system4')">&#10094;</button>
+              <div class="carousel-track" id="carousel-system4">
+                <img src="images/studentinfo/1.jpg" alt="StudentInfo 1" class="carousel-slide">
+                <img src="images/studentinfo/2.jpg" alt="StudentInfo 2" class="carousel-slide">
+                <img src="images/studentinfo/3.jpg" alt="StudentInfo 3" class="carousel-slide">
+                <img src="images/studentinfo/4.jpg" alt="StudentInfo 4" class="carousel-slide">
+                <img src="images/studentinfo/5.jpg" alt="StudentInfo 5" class="carousel-slide">
+                <img src="images/studentinfo/6.jpg" alt="StudentInfo 6" class="carousel-slide">
+                <img src="images/studentinfo/7.jpg" alt="StudentInfo 7" class="carousel-slide">
+                <img src="images/studentinfo/8.jpg" alt="StudentInfo 8" class="carousel-slide">
+                <img src="images/studentinfo/9.jpg" alt="StudentInfo 9" class="carousel-slide">
+                <img src="images/studentinfo/10.jpg" alt="StudentInfo 10" class="carousel-slide">
+                <img src="images/studentinfo/11.jpg" alt="StudentInfo 11" class="carousel-slide">
+                <img src="images/studentinfo/12.jpg" alt="StudentInfo 12" class="carousel-slide">
+                <img src="images/studentinfo/13.jpg" alt="StudentInfo 13" class="carousel-slide">
+                <img src="images/studentinfo/14.jpg" alt="StudentInfo 14" class="carousel-slide">
+                <img src="images/studentinfo/15.jpg" alt="StudentInfo 15" class="carousel-slide">
+                <img src="images/studentinfo/16.jpg" alt="StudentInfo 16" class="carousel-slide">
+                <img src="images/studentinfo/17.jpg" alt="StudentInfo 17" class="carousel-slide">
+                <img src="images/studentinfo/18.jpg" alt="StudentInfo 18" class="carousel-slide">
+              </div>
+              <button class="carousel-btn next" aria-label="Next image" onclick="carouselNext('system4')">&#10095;</button>
+              <div class="carousel-dots" id="carousel-dots-system4" aria-hidden="false"></div>
+            </div>
+            <div class="modal-desc">
+              <h2>Student Information System</h2> <br>
+              <p>EduTrack is a comprehensive mobile Student Information System designed to streamline academic management through a modern, user-friendly interface. The platform features a dual-entry system for students and administrators, ensuring secure access to school data through a unified login and registration portal. Once authenticated, users interact with a central dashboard that provides a high-level summary of total enrollment, active classes, and upcoming tasks. This allows for immediate institutional oversight and quick navigation to specialized modules for managing the student body and curriculum.</p> <br>
+              <p>The system excels in organization by maintaining detailed digital records for both students and academic schedules. The student directory offers reliable filtering capabilities, allowing users to sort records by specific courses, year levels, and sections to find information quickly. Similarly, the class management module handles the complexities of school scheduling by tracking course codes, semester details, and specific weekly time slots. This ensures that administrators can easily update the institutional timetable and maintain an accurate list of active subjects.</p> <br>
+              <p>Beyond basic record-keeping, EduTrack facilitates academic productivity through a dedicated activities portal. This module acts as a digital ledger for assignments and quizzes, providing a space to input detailed descriptions, resource links, and strict deadlines. By centralizing academic requirements and schedules in one cohesive environment, the system bridges the communication gap between administration and students, ensuring that all essential institutional data is organized and easily accessible on the go.</p> 
+            </div>
+          </div>
+        </div>
+        <div id="modal-system5" class="project-modal">
+          <div class="modal-content large-modal">
+            <button class="close-modal" onclick="closeProjectModal('system5')">&times;</button>
+            <div class="carousel">
+              <button class="carousel-btn prev" aria-label="Previous image" onclick="carouselPrev('system5')">&#10094;</button>
+              <div class="carousel-track" id="carousel-system5">
+                <img src="images/autoaccred/1.png" alt="AutoAccred 1" class="carousel-slide">
+                <img src="images/autoaccred/2.png" alt="AutoAccred 2" class="carousel-slide">
+                <img src="images/autoaccred/3.png" alt="AutoAccred 3" class="carousel-slide">
+                <img src="images/autoaccred/4.png" alt="AutoAccred 4" class="carousel-slide">
+                <img src="images/autoaccred/5.png" alt="AutoAccred 5" class="carousel-slide">
+                <img src="images/autoaccred/6.png" alt="AutoAccred 6" class="carousel-slide">
+                <img src="images/autoaccred/7.png" alt="AutoAccred 7" class="carousel-slide">
+                <img src="images/autoaccred/8.png" alt="AutoAccred 8" class="carousel-slide">
+                <img src="images/autoaccred/9.png" alt="AutoAccred 9" class="carousel-slide">
+                <img src="images/autoaccred/10.png" alt="AutoAccred 10" class="carousel-slide">
+              </div>
+              <button class="carousel-btn next" aria-label="Next image" onclick="carouselNext('system5')">&#10095;</button>
+              <div class="carousel-dots" id="carousel-dots-system5" aria-hidden="false"></div>
+            </div>
+            <div class="modal-desc">
+              <h2>Automated Document Classification and Management for School Accreditation Benchmarking</h2> <br>
+              <p>The Automated Document Classification and Management System is an advanced AI-driven platform specifically engineered to streamline the labor-intensive school accreditation benchmarking process. Traditionally, accreditation requires the manual sorting and classification of vast quantities of unstructured documents such as course syllabi, faculty credentials, and student work samples. This system modernizes that workflow by integrating a multi-stage digital pipeline that begins with an Optical Character Recognition engine to convert scanned PDFs or images into machine-readable text. To ensure high efficiency, the system focuses its analysis on the front page of documents where the most critical identifying information is typically located.</p> <br>
+              <p>The core intelligence of the system relies on a fine-tuned BERT model for semantic classification alongside a Named Entity Recognition module. While the BERT classifier determines the document's category based on the overall context of the text, the NER module simultaneously extracts specific data points like names, dates, and academic terms. The system then employs a weighted scoring engine that combines results from the BERT classifier, NER validation, and a keyword analysis engine to achieve high accuracy. This allows the system to remain layout-independent, meaning it can correctly identify and categorize a document based on its actual content rather than relying on a rigid physical template.</p> <br>
+              <p>Once a document is processed and validated, the system automatically generates a standardized filename and assigns the file to one of ten predefined accreditation folders. This automated organization facilitates seamless storage and rapid retrieval for evaluators. Built to be adaptable, the platform also includes an administrative interface that allows institutions to add new document types or adjust folder constraints as accreditation standards evolve. By replacing manual sorting with this integrated natural language processing architecture, the system significantly reduces administrative workloads, minimizes human error, and improves the overall reliability of institutional data management.</p>
+            </div>
+          </div>
+        </div>
+        <div id="modal-system6" class="project-modal">
+          <div class="modal-content large-modal">
+            <button class="close-modal" onclick="closeProjectModal('system6')">&times;</button>
+            <div class="carousel">
+              <button class="carousel-btn prev" aria-label="Previous image" onclick="carouselPrev('system6')">&#10094;</button>
+              <div class="carousel-track" id="carousel-system6">
+                <img src="images/sk/1.png" alt="SK Screenshot 1" class="carousel-slide">
+                <img src="images/sk/2.png" alt="SK Screenshot 2" class="carousel-slide">
+                <img src="images/sk/3.png" alt="SK Screenshot 3" class="carousel-slide">
+                <img src="images/sk/4.png" alt="SK Screenshot 4" class="carousel-slide">
+                <img src="images/sk/5.png" alt="SK Screenshot 5" class="carousel-slide">
+                <img src="images/sk/6.png" alt="SK Screenshot 6" class="carousel-slide">
+                <img src="images/sk/7.png" alt="SK Screenshot 7" class="carousel-slide">
+                <img src="images/sk/8.png" alt="SK Screenshot 8" class="carousel-slide">
+                <img src="images/sk/9.png" alt="SK Screenshot 9" class="carousel-slide">
+                <img src="images/sk/10.png" alt="SK Screenshot 10" class="carousel-slide">
+                <img src="images/sk/11.png" alt="SK Screenshot 11" class="carousel-slide">
+                <img src="images/sk/12.png" alt="SK Screenshot 12" class="carousel-slide">
+                <img src="images/sk/13.png" alt="SK Screenshot 13" class="carousel-slide">
+                <img src="images/sk/14.png" alt="SK Screenshot 14" class="carousel-slide">
+                <img src="images/sk/15.png" alt="SK Screenshot 15" class="carousel-slide">
+                <img src="images/sk/16.png" alt="SK Screenshot 16" class="carousel-slide">
+                <img src="images/sk/17.png" alt="SK Screenshot 17" class="carousel-slide">
+                <img src="images/sk/18.png" alt="SK Screenshot 18" class="carousel-slide">
+                <img src="images/sk/19.png" alt="SK Screenshot 19" class="carousel-slide">
+                <img src="images/sk/20.png" alt="SK Screenshot 20" class="carousel-slide">
+                <img src="images/sk/21.png" alt="SK Screenshot 21" class="carousel-slide">
+                <img src="images/sk/22.png" alt="SK Screenshot 22" class="carousel-slide">
+                <img src="images/sk/23.png" alt="SK Screenshot 23" class="carousel-slide">
+                <img src="images/sk/24.png" alt="SK Screenshot 24" class="carousel-slide">
+                <img src="images/sk/25.png" alt="SK Screenshot 25" class="carousel-slide">
+                <img src="images/sk/26.png" alt="SK Screenshot 26" class="carousel-slide">
+                <img src="images/sk/27.png" alt="SK Screenshot 27" class="carousel-slide">
+                <img src="images/sk/28.png" alt="SK Screenshot 28" class="carousel-slide">
+                <img src="images/sk/29.png" alt="SK Screenshot 29" class="carousel-slide">
+                <img src="images/sk/30.png" alt="SK Screenshot 30" class="carousel-slide">
+                <img src="images/sk/31.png" alt="SK Screenshot 31" class="carousel-slide">
+                <img src="images/sk/32.png" alt="SK Screenshot 32" class="carousel-slide">
+                <img src="images/sk/33.png" alt="SK Screenshot 33" class="carousel-slide">
+                <img src="images/sk/34.png" alt="SK Screenshot 34" class="carousel-slide">
+                <img src="images/sk/35.png" alt="SK Screenshot 35" class="carousel-slide">
+                <img src="images/sk/36.png" alt="SK Screenshot 36" class="carousel-slide">
+                <img src="images/sk/37.png" alt="SK Screenshot 37" class="carousel-slide">
+                <img src="images/sk/38.png" alt="SK Screenshot 38" class="carousel-slide">
+                <img src="images/sk/39.png" alt="SK Screenshot 39" class="carousel-slide">
+                <img src="images/sk/40.png" alt="SK Screenshot 40" class="carousel-slide">
+                <img src="images/sk/41.png" alt="SK Screenshot 41" class="carousel-slide">
+                <img src="images/sk/42.png" alt="SK Screenshot 42" class="carousel-slide">
+                <img src="images/sk/43.png" alt="SK Screenshot 43" class="carousel-slide">
+                <img src="images/sk/44.png" alt="SK Screenshot 44" class="carousel-slide">
+                <img src="images/sk/45.png" alt="SK Screenshot 45" class="carousel-slide">
+                <img src="images/sk/46.png" alt="SK Screenshot 46" class="carousel-slide">
+                <img src="images/sk/47.png" alt="SK Screenshot 47" class="carousel-slide">
+                <img src="images/sk/48.png" alt="SK Screenshot 48" class="carousel-slide">
+                <img src="images/sk/49.png" alt="SK Screenshot 49" class="carousel-slide">
+              </div>
+              <button class="carousel-btn next" aria-label="Next image" onclick="carouselNext('system6')">&#10095;</button>
+              <div class="carousel-dots" id="carousel-dots-system6" aria-hidden="false"></div>
+            </div>
+            <div class="modal-desc">
+              <h2>SK Projects Management: Integrated Development Framework</h2>
+              <p>An information management system for SK projects, providing an integrated development framework for planning, tracking, and reporting.</p>
+            </div>
+            
+          </div>
+        </div>
+        <style>
+          .projects-grid.modern {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(320px, 360px));
+            gap: 2.5rem 2.5rem;
+            justify-content: start;
+            align-items: start;
+            margin: 0 0 2em 0; /* don't auto-center */
+            max-width: 1280px;
+            place-items: start;
+          }
+          .projects-section {
+            width: 100%;
+            display: block; /* allow normal flow and left alignment */
+          }
+          .modern-project-card {
+            background: linear-gradient(135deg, #232b3a 80%, #1a2233 100%);
+            border-radius: 1.2rem;
+            box-shadow: 0 2px 16px #0003, 0 1.5px 8px #6ee7ff11;
+            padding: 2.7rem 2.2rem 2.2rem 2.2rem;
+            width: 100%;
+            max-width: 400px;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            cursor: pointer;
+            transition: box-shadow 0.18s, transform 0.18s, background 0.18s;
+            border: 1.5px solid #2e3a4a;
+            position: relative;
+            justify-self: center;
+          }
+          .modern-project-card:hover {
+            box-shadow: 0 8px 32px #6ee7ff33, 0 2px 12px #00f2ff22;
+            transform: translateY(-6px) scale(1.025);
+            border-color: #6ee7ff;
+            background: linear-gradient(135deg, #26344a 80%, #232b3a 100%);
+          }
+          .modern-project-logo.modern-project-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            margin-bottom: 1.3em;
+            font-size: 2.2rem;
+            color: #00bcd4;
+            box-shadow: 0 2px 8px #00bcd422;
+            background: #1a2233;
+          }
+          .modern-project-card:nth-child(2) .modern-project-logo { color: #ff9800; background: #2a2320; }
+          .modern-project-card:nth-child(3) .modern-project-logo { color: #43a047; background: #1a2a1a; }
+          .modern-project-card:nth-child(4) .modern-project-logo { color: #7e57c2; background: #221a2a; }
+          .modern-project-card:nth-child(5) .modern-project-logo { color: #fbc02d; background: #2a291a; }
+          .modern-project-card:nth-child(6) .modern-project-logo { color: #1976d2; background: #1a1f2a; }
+          .modern-project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #eaf6ff;
+            margin-bottom: 0.2em;
+            letter-spacing: 0.01em;
+            line-height: 1.3;
+          }
+          .modern-project-meta {
+            font-size: 1.08rem;
+            color: #6ee7ff;
+            font-weight: 500;
+            margin-bottom: 0.2em;
+            margin-top: 0.1em;
+            letter-spacing: 0.01em;
+          }
+          @media (max-width: 1200px) {
+            .projects-grid.modern {
+              grid-template-columns: repeat(2, minmax(320px, 1fr));
+              max-width: 900px;
+            }
+          }
+          @media (max-width: 800px) {
+            .projects-grid.modern {
+              grid-template-columns: 1fr;
+              max-width: 500px;
+            }
+            .modern-project-card {
+              max-width: 100%;
+            }
+          }
+          /* Modal overlay styles (ensure modals are overlays, hidden by default) */
+          .project-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.65);
+            justify-content: center;
+            align-items: center;
+          }
+          .project-modal.active {
+            display: flex !important;
+          }
+          .modal-content.large-modal {
+            background: #232b3a;
+            padding: 1.5rem 1.75rem;
+            border-radius: 12px;
+            width: min(96vw, 1400px);
+            max-height: 96vh;
+            overflow: auto;
+            box-shadow: 0 28px 80px rgba(0,0,0,0.65);
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+          }
+          .modal-screenshot { width: 100%; height: auto; border-radius: 8px; }
+          .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.25rem;
+            font-size: 1.8rem;
+            color: #9be7ff;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+          }
+          /* Carousel styles for SK modal (smooth fade transition) */
+          .carousel {
+            width: 100%;
+            position: relative;
+            display: block;
+          }
+          .carousel-track {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            /* increase vertical space so large screenshots can be displayed */
+            min-height: 76vh;
+            max-height: 86vh;
+          }
+          /* center slides inside the track while keeping fade/scale transitions */
+          .carousel-slide {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.99);
+            opacity: 0;
+            transition: opacity 420ms cubic-bezier(.2,.8,.2,1), transform 420ms cubic-bezier(.2,.8,.2,1);
+            border-radius: 8px;
+            object-fit: contain;
+            display: block;
+            max-width: calc(100% - 40px);
+            width: auto;
+          }
+          .carousel-slide.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            z-index: 5;
+            pointer-events: auto;
+          }
+          .carousel-slide:not(.active) { z-index: 1; pointer-events: none; }
+          /* make sure images scale to the available modal height */
+          .carousel-track img { display:block; margin:0 auto; width:auto; max-width:100%; height:auto; max-height: calc(86vh - 160px); }
+          .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.45);
+            color: #fff;
+            border: none;
+            padding: 0.5rem 0.85rem;
+            font-size: 1.6rem;
+            border-radius: 6px;
+            cursor: pointer;
+            z-index: 6;
+          }
+          .carousel-btn.prev { left: 10px; }
+          .carousel-btn.next { right: 10px; }
+          .carousel-btn:hover { background: rgba(0,0,0,0.65); }
+          .carousel-dots {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 12px;
+            overflow-x: auto;
+            padding: 6px 4px;
+            -webkit-overflow-scrolling: touch;
+            white-space: nowrap;
+          }
+          .carousel-dots .dot {
+            width: 10px;
+            height: 10px;
+            background: rgba(255,255,255,0.45);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 180ms ease, transform 180ms ease;
+            border: 1px solid rgba(0,0,0,0.12);
+          }
+          .carousel-dots .dot.active {
+            background: #111;
+            transform: scale(1.15);
+          }
+        </style>
+        <script>
+          function openProjectModal(id) {
+            document.getElementById('modal-' + id).classList.add('active');
+            // if this modal has a carousel, ensure first slide active and init dots
+            const track = document.getElementById('carousel-' + id);
+            if (track) {
+              const slides = track.querySelectorAll('.carousel-slide');
+              slides.forEach((s,i)=> s.classList.toggle('active', i===0));
+              track.dataset.index = 0;
+              if (typeof initCarouselDots === 'function') initCarouselDots(id);
+            }
+          }
+          function closeProjectModal(id) {
+            document.getElementById('modal-' + id).classList.remove('active');
+          }
+          function carouselNext(id) {
+            const track = document.getElementById('carousel-' + id);
+            if (!track) return;
+            const slides = track.querySelectorAll('.carousel-slide');
+            let idx = parseInt(track.dataset.index || 0, 10);
+            slides[idx].classList.remove('active');
+            idx = (idx + 1) % slides.length;
+            slides[idx].classList.add('active');
+            track.dataset.index = idx;
+            if (typeof updateCarouselDots === 'function') updateCarouselDots(id);
+          }
+          function carouselPrev(id) {
+            const track = document.getElementById('carousel-' + id);
+            if (!track) return;
+            const slides = track.querySelectorAll('.carousel-slide');
+            let idx = parseInt(track.dataset.index || 0, 10);
+            slides[idx].classList.remove('active');
+            idx = (idx - 1 + slides.length) % slides.length;
+            slides[idx].classList.add('active');
+            track.dataset.index = idx;
+            if (typeof updateCarouselDots === 'function') updateCarouselDots(id);
+          }
+          
+          // Dots helpers
+          function initCarouselDots(id) {
+            const track = document.getElementById('carousel-' + id);
+            const dotsWrap = document.getElementById('carousel-dots-' + id);
+            if (!track || !dotsWrap) return;
+            if (dotsWrap.dataset.inited === '1') return;
+            const slides = track.querySelectorAll('.carousel-slide');
+            dotsWrap.innerHTML = '';
+            slides.forEach((s, i) => {
+              const btn = document.createElement('button');
+              btn.type = 'button';
+              btn.className = 'dot';
+              btn.setAttribute('aria-label', 'Go to slide ' + (i+1));
+              btn.addEventListener('click', () => { goToSlide(id, i); });
+              dotsWrap.appendChild(btn);
+            });
+            dotsWrap.dataset.inited = '1';
+            updateCarouselDots(id);
+          }
+
+          function updateCarouselDots(id) {
+            const track = document.getElementById('carousel-' + id);
+            const dotsWrap = document.getElementById('carousel-dots-' + id);
+            if (!track || !dotsWrap) return;
+            const idx = parseInt(track.dataset.index || 0, 10);
+            const dots = dotsWrap.querySelectorAll('.dot');
+            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+          }
+
+          function goToSlide(id, i) {
+            const track = document.getElementById('carousel-' + id);
+            if (!track) return;
+            const slides = track.querySelectorAll('.carousel-slide');
+            const idx = Math.max(0, Math.min(i, slides.length - 1));
+            slides.forEach(s => s.classList.remove('active'));
+            slides[idx].classList.add('active');
+            track.dataset.index = idx;
+            if (typeof updateCarouselDots === 'function') updateCarouselDots(id);
+          }
+          // Close modal when clicking the overlay
+          window.onclick = function(event) {
+            const modals = ['system1','system2','system3','system4','system5','system6'];
+            for (const id of modals) {
+              const modal = document.getElementById('modal-' + id);
+              if (modal && event.target === modal) {
+                closeProjectModal(id);
+              }
+            }
+          }
+        </script>
       </div>
     </section>
 
@@ -158,24 +773,22 @@
             <h3 class="word-hover">Other Ways to Reach Me</h3>
             <ul>
               <li><strong>Email:</strong> <a href="mailto:charliearanez69@email.com" class="word-hover">charliearanez69@email.com</a></li>
-              <li><strong>Phone:</strong> <a href="tel:+639123456789" class="word-hover">+63 912 345 6789</a></li>
-              <li><strong>Address:</strong> <span class="word-hover">Cebu City, Philippines</span></li>
-              <li><strong>Business Hours:</strong> <span class="word-hover">Mon-Fri 9:00am - 6:00pm</span></li>
-              <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/" target="_blank" class="word-hover">linkedin.com/in/charliearanez</a></li>
-              <li><strong>GitHub:</strong> <a href="https://github.com/" target="_blank" class="word-hover">github.com/charliearanez</a></li>
+              <li><strong>Phone:</strong> <a href="tel:+639086575877" class="word-hover">09086575877</a></li>
+              <li><strong>Address:</strong> <span class="word-hover">Santa Ana, Manila, Philippines</span></li>
+              <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/charlie-magne-ara%C3%B1ez-25928837a/" target="_blank" class="word-hover">linkedin.com/in/charlie-magne-arañez-25928837a</a></li>
+              <li><strong>GitHub:</strong> <a href="https://github.com/Chawwiee" target="_blank" class="word-hover">github.com/Chawwiee</a></li>
               <li><strong>Facebook:</strong> <a href="https://www.facebook.com/charliemagne.zenara" target="_blank" class="word-hover">facebook.com/charliemagne.zenara</a></li>
               <li><strong>Instagram:</strong> <a href="https://www.instagram.com/eenie_meynnie/" target="_blank" class="word-hover">instagram.com/eenie_meynnie</a></li>
-              <li><strong>YouTube:</strong> <a href="https://www.youtube.com/@aranezcharliemagne2187" target="_blank" class="word-hover">youtube.com/@aranezcharliemagne2187</a></li>
             </ul>
             <div class="contact-map" style="margin-top:18px;">
-              <iframe src="https://www.google.com/maps?q=Cebu+City,+Philippines&output=embed" width="100%" height="120" style="border-radius:10px;border:none;"></iframe>
+              <iframe src="https://www.google.com/maps?q=Manila+City,+Philippines&output=embed" width="100%" height="120" style="border-radius:10px;border:none;"></iframe>
             </div>
             <div class="contact-faq" style="margin-top:18px;">
               <h4 class="word-hover">FAQ</h4>
               <ul>
                 <li><strong>How soon will I get a reply?</strong> <span class="word-hover">Usually within 24 hours.</span></li>
                 <li><strong>Do you accept freelance work?</strong> <span class="word-hover">Yes, I am open to freelance and project-based work.</span></li>
-                <li><strong>Can we meet in person?</strong> <span class="word-hover">If you're in Cebu City, let's arrange a meetup!</span></li>
+                <li><strong>Can we meet in person?</strong> <span class="word-hover">If you're in Manila City or somewhere near, let's arrange a meetup!</span></li>
               </ul>
             </div>
           </div>
@@ -191,15 +804,199 @@
 
   <!-- Floating Social Icons -->
   <div class="socials-bar">
-    <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
     <a href="https://www.facebook.com/charliemagne.zenara" target="_blank" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
-    <a href="https://www.instagram.com/eenie_meynnie//" target="_blank" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
-    <a href="https://www.youtube.com/@aranezcharliemagne2187" target="_blank" aria-label="YouTube"><i class="fa fa-youtube"></i></a>
-    <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
-    <a href="https://github.com/" target="_blank" aria-label="GitHub"><i class="fa fa-github"></i></a>
-    <a href="mailto:charliearanez69@email.com" aria-label="Email"><i class="fa fa-envelope"></i></a>
+    <a href="https://www.instagram.com/eenie_meynnie/" target="_blank" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/in/charlie-magne-ara%C3%B1ez-25928837a/" target="_blank" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+    <a href="https://github.com/Chawwiee" target="_blank" aria-label="GitHub"><i class="fa fa-github"></i></a>
+    
   </div>
 
+  <!-- Ensure project modals are direct children of <body> so fixed positioning overlays all content -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      try {
+        document.querySelectorAll('.project-modal').forEach(function (m) {
+          document.body.appendChild(m);
+        });
+      } catch (e) {
+        // fail silently
+        console.error('modal move failed', e);
+      }
+    });
+  </script>
+  <script>
+    // Robust per-word wrapper: only replaces text nodes and preserves child elements (links, tags)
+    (function(){
+      var excludeSelectors = ['.no-word-pop','button','.btn','.hero-cta a'];
+
+      function matchesAny(el, selectors){
+        try{ return selectors.some(function(s){ return el.matches && el.matches(s); }); }catch(e){ return false; }
+      }
+
+      function isInsideExcluded(el){
+        var cur = el;
+        while(cur && cur !== document.documentElement){
+          if (matchesAny(cur, excludeSelectors)) return true;
+          cur = cur.parentElement;
+        }
+        return false;
+      }
+
+      function shouldSkipTag(tag){
+        return ['SCRIPT','STYLE','IMG','SVG','CANVAS','INPUT','TEXTAREA','SELECT','IFRAME','VIDEO'].indexOf(tag) !== -1;
+      }
+
+      function wrapTextNode(node){
+        var text = node.nodeValue;
+        if (!text || !/\S/.test(text)) return null;
+        var tokens = text.split(/(\s+)/);
+        var frag = document.createDocumentFragment();
+        tokens.forEach(function(t){
+          if (!t) return;
+          if (/^\s+$/.test(t)) {
+            frag.appendChild(document.createTextNode(t));
+          } else {
+            var span = document.createElement('span');
+            span.className = 'pop-word';
+            span.textContent = t;
+            frag.appendChild(span);
+          }
+        });
+        return frag;
+      }
+
+      function processElement(el){
+        if (el.dataset.wordPop === '1') return;
+        if (isInsideExcluded(el)) return;
+        if (matchesAny(el, excludeSelectors)) return;
+        var walker = document.createTreeWalker(el, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, null, false);
+        var nodesToReplace = [];
+        var current = walker.nextNode();
+        while(current){
+          if (current.nodeType === Node.ELEMENT_NODE){
+            if (shouldSkipTag(current.tagName)) {
+              // skip children of this element
+              walker.currentNode = current;
+              // move to next node
+              current = walker.nextNode();
+              continue;
+            }
+          } else if (current.nodeType === Node.TEXT_NODE){
+            if (/\S/.test(current.nodeValue)) nodesToReplace.push(current);
+          }
+          current = walker.nextNode();
+        }
+
+        if (!nodesToReplace.length) return;
+        var wrapper = document.createElement('span');
+        wrapper.className = 'word-pop';
+
+        var child = el.firstChild;
+        while(child){
+          var next = child.nextSibling;
+          if (child.nodeType === Node.TEXT_NODE){
+            var frag = wrapTextNode(child);
+            if (frag) wrapper.appendChild(frag);
+          } else if (child.nodeType === Node.ELEMENT_NODE){
+            var clone = child.cloneNode(false);
+            var grand = child.firstChild;
+            while(grand){
+              var grandNext = grand.nextSibling;
+              if (grand.nodeType === Node.TEXT_NODE){
+                var f = wrapTextNode(grand);
+                if (f) clone.appendChild(f);
+              } else {
+                clone.appendChild(grand.cloneNode(true));
+              }
+              grand = grandNext;
+            }
+            wrapper.appendChild(clone);
+          }
+          child = next;
+        }
+
+        el.innerHTML = '';
+        el.appendChild(wrapper);
+        el.dataset.wordPop = '1';
+      }
+
+      document.addEventListener('DOMContentLoaded', function(){
+        try{
+          var selectors = ['h1','h2','h3','h4','h5','h6','p','li','.lead','.skill-desc','.skill-name','.modern-project-title','.modern-project-meta','.project-desc','.modal-desc','.contact-intro p','.hero-title','.hero-sub','.kicker','.brand','.site-nav a','.btn','.modern-project-card .modern-project-title'];
+          selectors.forEach(function(sel){
+            document.querySelectorAll(sel).forEach(function(el){
+              processElement(el);
+            });
+          });
+        }catch(e){ console.error('word-pop init failed', e); }
+      });
+    })();
+  </script>
+
   <script src="script.js"></script>
+
+  <!-- Inject decorative elements into projects section for animated background accents -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      try {
+        var sec = document.querySelector('.projects-section');
+        if (!sec) return;
+          var decoNames = ['deco-1','deco-2','deco-3','deco-4','deco-5','deco-6','deco-7','deco-8'];
+          decoNames.forEach(function(d){
+            var el = document.createElement('div');
+            el.className = 'proj-deco ' + d;
+            if (d === 'deco-6' || d === 'deco-4') {
+              el.innerHTML = '<svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g1-'+d+'" x1="0" x2="1"><stop offset="0" stop-color="#6ee7ff" stop-opacity="0.08"/><stop offset="1" stop-color="#7b61ff" stop-opacity="0.06"/></linearGradient></defs><rect x="0" y="0" width="100" height="100" fill="url(#g1-'+d+')" rx="12"/></svg>';
+              el.style.overflow = 'hidden';
+            }
+            sec.appendChild(el);
+          });
+
+          // inject modal interior decorations into each modal-content.large-modal
+          try {
+            document.querySelectorAll('.modal-content.large-modal').forEach(function(mc){
+              // skip if already injected
+              if (mc.querySelector('.modal-decos')) return;
+              var wrap = document.createElement('div');
+              wrap.className = 'modal-decos';
+              var names = ['md-1','md-2','md-3','md-4'];
+              names.forEach(function(n){
+                var m = document.createElement('div');
+                m.className = 'modal-deco ' + n;
+                // small SVG accent for md-2
+                if (n === 'md-2') {
+                  var rnd = 'mg' + Math.random().toString(36).slice(2,6);
+                  m.innerHTML = '<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">'
+                    + '<defs><linearGradient id="' + rnd + '" x1="0" x2="1">'
+                    + '<stop offset="0" stop-color="#6ee7ff" stop-opacity="0.12"/> '
+                    + '<stop offset="1" stop-color="#7b61ff" stop-opacity="0.08"/> '
+                    + '</linearGradient></defs>'
+                    + '<circle cx="32" cy="32" r="30" fill="url(#' + rnd + ')" />'
+                    + '</svg>';
+                }
+                wrap.appendChild(m);
+              });
+              mc.insertBefore(wrap, mc.firstChild);
+            });
+          } catch(e){ console.error('modal deco failed', e); }
+
+          // add global background decorations to body (if not present)
+          try {
+            var bodyDecos = ['b1','b2','b3','b4','b5','b6','b7','b8'];
+            bodyDecos.forEach(function(d){
+              if (document.body.querySelector('.bg-deco.'+d)) return;
+              var el = document.createElement('div');
+              el.className = 'bg-deco ' + d;
+              // optional small SVG accent inside a couple of the larger blobs
+              if (d === 'b1' || d === 'b4') {
+                el.innerHTML = '<svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="bggrad-'+d+'" x1="0" x2="1"><stop offset="0" stop-color="#6ee7ff" stop-opacity="0.12"/><stop offset="1" stop-color="#7b61ff" stop-opacity="0.08"/></linearGradient></defs><circle cx="100" cy="100" r="80" fill="url(#bggrad-'+d+')"/></svg>';
+                el.style.overflow = 'hidden';
+              }
+              document.body.appendChild(el);
+            });
+          } catch(err) { console.error('bg deco injection failed', err); }
+      } catch (e) { console.error('deco inject failed', e); }
+    });
+  </script>
 </body>
 </html>

@@ -170,3 +170,141 @@ function setupBoxModal() {
   });
 }
 document.addEventListener('DOMContentLoaded', setupBoxModal);
+
+// Contact form handler: validate and submit (mailto fallback)
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.querySelector('.contact-form');
+  if (!form) return;
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn ? submitBtn.textContent : 'Send';
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const name = (form.querySelector('#name') || {}).value || '';
+    const email = (form.querySelector('#email') || {}).value || '';
+    const message = (form.querySelector('#message') || {}).value || '';
+
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      alert('Please fill in your name, email, and message.');
+      return;
+    }
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+    }
+
+    // If you have a form endpoint (recommended for GitHub Pages), set it here.
+    // Example (Formspree): https://formspree.io/f/yourFormId
+    // Leave blank to use the mailto fallback/modal.
+    const FORM_ENDPOINT = '';
+
+    try {
+      if (FORM_ENDPOINT) {
+        // Use FormData for maximum compatibility with form endpoints (Formspree, Getform, etc.)
+        const fd = new FormData();
+        fd.append('name', name);
+        fd.append('email', email);
+        fd.append('message', message);
+        const res = await fetch(FORM_ENDPOINT, { method: 'POST', body: fd });
+        if (!res.ok) throw new Error('Network response was not ok');
+        alert('Message sent — thank you!');
+        form.reset();
+      } else {
+        // mailto fallback: show a small modal with options instead of forcing navigation
+        const to = 'charliearanez69@email.com';
+        const subject = encodeURIComponent('Portfolio message from ' + name);
+        const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
+        const mailtoLink = `mailto:${to}?subject=${subject}&body=${body}`;
+
+        // create modal if needed
+        let mailModal = document.getElementById('mail-modal');
+        if (!mailModal) {
+          mailModal = document.createElement('div');
+          mailModal.id = 'mail-modal';
+          mailModal.style.position = 'fixed';
+          mailModal.style.left = '0';
+          mailModal.style.top = '0';
+          mailModal.style.right = '0';
+          mailModal.style.bottom = '0';
+          mailModal.style.display = 'flex';
+          mailModal.style.alignItems = 'center';
+          mailModal.style.justifyContent = 'center';
+          mailModal.style.background = 'rgba(0,0,0,0.6)';
+          mailModal.style.zIndex = '99999';
+
+          const box = document.createElement('div');
+          box.style.background = '#23232b';
+          box.style.padding = '20px';
+          box.style.borderRadius = '12px';
+          box.style.maxWidth = '420px';
+          box.style.width = '92%';
+          box.style.color = '#eaf6ff';
+          box.style.boxShadow = '0 8px 40px rgba(0,0,0,0.6)';
+
+          box.innerHTML = `
+            <h3 style="margin:0 0 8px 0;font-size:1.05rem">Open your mail client</h3>
+            <p style="margin:0 0 12px 0;color:#cfeefb;font-size:0.95rem">Your message is ready. You can open your mail client to send it, or copy the message and paste it into your preferred mail app.</p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end">
+              <a id="mail-open-link" href="#" style="background:#4f8cff;color:#071124;padding:10px 12px;border-radius:8px;text-decoration:none;font-weight:700">Open Mail Client</a>
+              <button id="mail-copy-btn" style="background:transparent;border:1px solid #4f8cff;color:#4f8cff;padding:10px 12px;border-radius:8px;font-weight:700">Copy Message</button>
+              <button id="mail-close-btn" style="background:#333;border:0;color:#fff;padding:10px 12px;border-radius:8px;font-weight:700">Close</button>
+            </div>
+            <p id="mail-copy-feedback" style="margin-top:10px;color:#8be3ff;display:none;font-size:0.9rem">Copied to clipboard</p>
+          `;
+
+          mailModal.appendChild(box);
+          document.body.appendChild(mailModal);
+
+          // wire buttons
+          const openLink = document.getElementById('mail-open-link');
+          const copyBtn = document.getElementById('mail-copy-btn');
+          const closeBtn = document.getElementById('mail-close-btn');
+          const feedback = document.getElementById('mail-copy-feedback');
+
+          openLink.addEventListener('click', function (ev) {
+            // open mailto in a new window/tab — allow user to control browser behavior
+            window.open(mailtoLink, '_blank');
+          });
+          copyBtn.addEventListener('click', function () {
+            const text = `To: ${to}\nSubject: ${decodeURIComponent(subject)}\n\n${message}`;
+            navigator.clipboard && navigator.clipboard.writeText(text).then(function () {
+              feedback.style.display = 'block';
+              setTimeout(() => feedback.style.display = 'none', 2600);
+            }).catch(function () {
+              // fallback: select and copy using a textarea
+              const ta = document.createElement('textarea');
+              ta.value = text;
+              document.body.appendChild(ta);
+              ta.select();
+              try { document.execCommand('copy'); feedback.style.display = 'block'; setTimeout(() => feedback.style.display = 'none', 2600); } catch (err) {}
+              document.body.removeChild(ta);
+            });
+          });
+          closeBtn.addEventListener('click', function () {
+            mailModal.style.display = 'none';
+          });
+          mailModal.addEventListener('click', function (e) { if (e.target === mailModal) mailModal.style.display = 'none'; });
+        }
+
+        // set link and show
+        const linkEl = document.getElementById('mail-open-link');
+        if (linkEl) linkEl.href = mailtoLink;
+        const modalEl = document.getElementById('mail-modal');
+        if (modalEl) modalEl.style.display = 'flex';
+
+        // reset form after showing modal
+        form.reset();
+      }
+    } catch (err) {
+      console.error('Contact form submit error', err);
+      alert('Sorry, an error occurred while sending your message. Please try again later.');
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+      }
+    }
+  });
+});

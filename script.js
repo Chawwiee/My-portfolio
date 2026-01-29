@@ -199,7 +199,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Example (Formspree): https://formspree.io/f/yourFormId
     // Example (Google Apps Script): https://script.google.com/macros/s/XXXXX/exec
     // Leave blank to use the mailto fallback/modal.
-    const FORM_ENDPOINT = '';
+    // To use Formspree, set your form endpoint below (provided by Formspree)
+    const FORM_ENDPOINT = 'https://formspree.io/f/xdazezbe';
     // Choose how to send to the endpoint:
     // - 'form' sends as FormData (default; works with Formspree/Getform)
     // - 'json' sends application/json (useful for Google Apps Script example below)
@@ -214,7 +215,10 @@ document.addEventListener('DOMContentLoaded', function () {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
           });
-          if (!res.ok) throw new Error('Network response was not ok');
+          if (!res.ok) {
+            const errText = await res.text().catch(() => '');
+            throw new Error(`HTTP ${res.status} - ${errText}`);
+          }
           alert('Message sent — thank you!');
           form.reset();
         } else {
@@ -223,8 +227,14 @@ document.addEventListener('DOMContentLoaded', function () {
           fd.append('name', name);
           fd.append('email', email);
           fd.append('message', message);
-          const res = await fetch(FORM_ENDPOINT, { method: 'POST', body: fd });
-          if (!res.ok) throw new Error('Network response was not ok');
+          // Include Accept header for Formspree AJAX handling (recommended)
+          const headers = {};
+          if (FORM_ENDPOINT.includes('formspree.io')) headers['Accept'] = 'application/json';
+          const res = await fetch(FORM_ENDPOINT, { method: 'POST', body: fd, headers });
+          if (!res.ok) {
+            const errText = await res.text().catch(() => '');
+            throw new Error(`HTTP ${res.status} - ${errText}`);
+          }
           alert('Message sent — thank you!');
           form.reset();
         }
@@ -316,7 +326,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     } catch (err) {
       console.error('Contact form submit error', err);
-      alert('Sorry, an error occurred while sending your message. Please try again later.');
+      alert('Sorry — an error occurred while sending your message. Check the console for details.\n' + (err && err.message ? err.message : ''));
     } finally {
       if (submitBtn) {
         submitBtn.disabled = false;
@@ -325,4 +335,3 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
-

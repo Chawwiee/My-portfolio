@@ -197,20 +197,37 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // If you have a form endpoint (recommended for GitHub Pages), set it here.
     // Example (Formspree): https://formspree.io/f/yourFormId
+    // Example (Google Apps Script): https://script.google.com/macros/s/XXXXX/exec
     // Leave blank to use the mailto fallback/modal.
     const FORM_ENDPOINT = '';
+    // Choose how to send to the endpoint:
+    // - 'form' sends as FormData (default; works with Formspree/Getform)
+    // - 'json' sends application/json (useful for Google Apps Script example below)
+    const FORM_ENDPOINT_TYPE = 'form';
 
     try {
       if (FORM_ENDPOINT) {
-        // Use FormData for maximum compatibility with form endpoints (Formspree, Getform, etc.)
-        const fd = new FormData();
-        fd.append('name', name);
-        fd.append('email', email);
-        fd.append('message', message);
-        const res = await fetch(FORM_ENDPOINT, { method: 'POST', body: fd });
-        if (!res.ok) throw new Error('Network response was not ok');
-        alert('Message sent — thank you!');
-        form.reset();
+        if (FORM_ENDPOINT_TYPE === 'json') {
+          const payload = { name, email, message };
+          const res = await fetch(FORM_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          if (!res.ok) throw new Error('Network response was not ok');
+          alert('Message sent — thank you!');
+          form.reset();
+        } else {
+          // Use FormData for maximum compatibility with form endpoints (Formspree, Getform, etc.)
+          const fd = new FormData();
+          fd.append('name', name);
+          fd.append('email', email);
+          fd.append('message', message);
+          const res = await fetch(FORM_ENDPOINT, { method: 'POST', body: fd });
+          if (!res.ok) throw new Error('Network response was not ok');
+          alert('Message sent — thank you!');
+          form.reset();
+        }
       } else {
         // mailto fallback: show a small modal with options instead of forcing navigation
         const to = 'charliearanez69@email.com';
@@ -308,3 +325,4 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
